@@ -11,6 +11,7 @@ export default function BudgetCard({
   openViewExpensesClick,
   hideButtons,
 }) {
+  
   const className = ["my-4 "];
   if (amount > max) {
     className.push("bg-danger", "bg-opacity-10");

@@ -6,7 +6,7 @@ import BudgetCard from "./component/BudgetCard";
 import AddBudgetModal from "./component/AddBudgetModal";
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "./context/BudgetContext";
 import AddExpenseModal from "./component/AddExpenseModal";
-import UnCatogorizedBudgetCard from './component/UnCatogorizedBudgetCard'
+import UnCategorizedBudgetCard from './component/UnCategorizedBudgetCard'
 import TotalBudgetCard from './component/TotalBudgetCard'
 import ViewExpensesModal from "./component/ViewExpensesModal";
 
@@ -41,23 +41,25 @@ function App() {
             alignItems: "flex-start",
           }}
         ></div>
-        {budgets.map((budget) => {
+        {budgets.map(budget => {
           const amount = getBudgetExpenses(budget.id).reduce(
             (total, expense) => total + expense.amount,
             0
-          );
+          )
           return (
-            <BudgetCard
+        <BudgetCard
               key={budget.id}
               name={budget.name}
               amount={amount}
               max={budget.max}
-              openAddExpenseClick={()=>openAddExpenseModal(budget.id)}
-              openViewExpensesClick={()=>setViewExpensesModalBudgetId(budget.id)}
+              openAddExpenseClick={() => openAddExpenseModal(budget.id)}
+              openViewExpensesClick={() => setViewExpensesModalBudgetId(budget.id)}
             ></BudgetCard>
+            
           );
-        })}
-        <UnCatogorizedBudgetCard  openAddExpenseClick={openAddExpenseModal}
+          })}
+        
+        <UnCategorizedBudgetCard  openAddExpenseClick={openAddExpenseModal}
               openViewExpensesClick={()=>setViewExpensesModalBudgetId(UNCATEGORIZED_BUDGET_ID)}
         />
 
@@ -78,7 +80,6 @@ function App() {
       />
        <ViewExpensesModal
         budgetId={viewExpensesModalBudgetId}
-        defaultBudgetId={viewExpensesModalBudgetId}
         handleClose={() => {
           setViewExpensesModalBudgetId();}}
       />
