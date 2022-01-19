@@ -8,6 +8,7 @@ export default function BudgetCard({
   max,
   gray,
   openAddExpenseClick,
+  openViewExpensesClick,
   hideButtons,
 }) {
   const className = ["my-4 "];
@@ -47,7 +48,7 @@ export default function BudgetCard({
           >
             Add Expense
           </Button>
-         <Button variant="outline-secondary">View Expenses</Button>
+         <Button variant="outline-secondary" onClick={openViewExpensesClick} >View Expenses</Button>
         </Stack>
          }
       </Card.Body>
