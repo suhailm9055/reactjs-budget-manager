@@ -7,6 +7,7 @@ import AddBudgetModal from "./component/AddBudgetModal";
 import { useBudgets } from "./context/BudgetContext";
 import AddExpenseModal from "./component/AddExpenseModal";
 import UnCatogorizedBudgetCard from './component/UnCatogorizedBudgetCard'
+import TotalBudgetCard from './component/TotalBudgetCard'
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Container className=" my-4 col-md-10 col-lg-8">
+      <Container className=" my-4 ">
         <Stack direction="horizontal" gap="2" className="mb-4">
           <h1 className="me-auto">Budgets</h1>
           <Button onClick={() => setShowAddBudgetModal(true)}>
@@ -53,7 +54,8 @@ function App() {
             ></BudgetCard>
           );
         })}
-        <UnCatogorizedBudgetCard/>
+        <UnCatogorizedBudgetCard  openAddExpenseClick={openAddExpenseModal}/>
+        <TotalBudgetCard/>
       </Container>
       
       <AddBudgetModal
