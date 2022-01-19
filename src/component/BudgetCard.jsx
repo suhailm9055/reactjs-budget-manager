@@ -3,7 +3,7 @@ import { Button, Card, ProgressBar, Stack } from "react-bootstrap";
 import { currencyFormatter } from "./utils";
 
 export default function BudgetCard({ name, amount, max,gray }) {
- const className=[]
+ const className=['my-4']
  if (amount> max){
      className.push('bg-danger','bg-opacity-10')
  }else if(gray){

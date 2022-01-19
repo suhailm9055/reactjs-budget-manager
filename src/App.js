@@ -5,6 +5,7 @@ import { Button, Container, Stack } from "react-bootstrap";
 import BudgetCard from "./component/BudgetCard";
 import AddBudgetModal from "./component/AddBudgetModal";
 import { useBudgets } from "./context/BudgetContext";
+import AddExpenseModal from "./component/AddExpenseModal"
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
   const { budgets, getBudgetExpenses } = useBudgets();
@@ -22,7 +23,7 @@ function App() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
-            gap: "1rem",
+            gap: "2rem",
             alignItems: "flex-start",
           }}
         ></div>
@@ -31,7 +32,7 @@ function App() {
             (total,expense)=>total+expense.amount,0
           )
           return(
-          <BudgetCard
+          <BudgetCard 
             key={budget.id}
             name={budget.name}
             amount={amount}
@@ -44,6 +45,11 @@ function App() {
         handleClose={() => {
           setShowAddBudgetModal(false);
         }}
+      />
+      <AddExpenseModal
+        show={true}
+        // handleClose={() => {
+        //   setShowAddBudgetModal(false);}}
       />
     </>
   );
