@@ -1,6 +1,8 @@
+import React from "react";
 import { Button, Modal, Stack } from "react-bootstrap";
 import {currencyFormatter} from "./utils"
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../context/BudgetContext";
+
 export default function ViewExpensesModal({ budgetId, handleClose }) {
   const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } =
     useBudgets();

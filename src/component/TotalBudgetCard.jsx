@@ -1,3 +1,4 @@
+import React from "react";
 import BudgetCard from "./BudgetCard";
 import { useBudgets } from "../context/BudgetContext";
 

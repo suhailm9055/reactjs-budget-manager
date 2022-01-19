@@ -1,5 +1,5 @@
 
-
+import React from "react";
 import BudgetCard from "./BudgetCard";
 import { UNCATEGORIZED_BUDGET_ID,useBudgets } from "../context/BudgetContext";
 

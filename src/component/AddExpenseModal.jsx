@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useRef } from "react";
 import { useBudgets,UNCATEGORIZED_BUDGET_ID } from "../context/BudgetContext";
