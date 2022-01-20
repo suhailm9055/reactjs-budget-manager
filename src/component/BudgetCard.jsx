@@ -1,6 +1,6 @@
 import React from "react";
-import {  Card, ProgressBar, Stack } from "react-bootstrap";
-import {Button} from 'semantic-ui-react'
+import {  Button,Card, ProgressBar, Stack } from "react-bootstrap";
+// import {Button} from 'semantic-ui-react'
 import { currencyFormatter } from "./utils";
 
 export default function BudgetCard({
@@ -44,14 +44,14 @@ export default function BudgetCard({
         )}
          {!hideButtons &&  <Stack direction="horizontal" gap="2" className="mt-4">
          <Button
-         basic color='blue'
+         variant="primary"
             
             className="ms-auto"
             onClick={openAddExpenseClick}
           >
             Add Expense
           </Button>
-         <Button basic color='grey' onClick={openViewExpensesClick} >View Expenses</Button>
+         <Button variant="primary" onClick={openViewExpensesClick} >View Expenses</Button>
         </Stack>
          }
       </Card.Body>

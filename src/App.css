@@ -42,16 +42,16 @@
 .container{
   background: linear-gradient(#061c80bb, #05186d62);
   border-radius: 5px;
-  box-shadow: 0px 0px 9px 8px #081553;
+  box-shadow: 0px 0px 9px 8px #b8141423;
   padding: 10px;
   padding-inline: 50px;
 }
 .card-body{
-  background-color: #041562;
+  /* background-color: #041562; */
   color: #EEEEEE;
   border-radius: 10px;
-  background: linear-gradient(#041562, #030925);
-    
+  /* background: linear-gradient(#041562, #030925); */
+  background: linear-gradient(#041562, #030925c2);
     box-shadow: 0px 2px 10px 2px #4254ad77;
 }
 
@@ -61,35 +61,63 @@
  font-weight: lighter;
 }
 .card{
-  background-color: #041562;
+  
   border-radius: 10px;
  border: hidden;
+ 
   box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
   
 }
-.card.bg-light{
-  
-  background-color: #0f1e61;
-  border-radius: 10px;
- border: hidden;
-  box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+.card{
+  background: linear-gradient(#000000cc,#b81414);
 }
+.card.bg-danger{
+  border: solid 1px red;
+  box-shadow: 0px 1px 5px 1px red;
+}
+/* .card-body.bg-danger{
+  background: linear-gradient(#ff0000,#ff0909);
+} */
 .card-body:hover{
-  background: linear-gradient(#041562, #030925c2);
+  background: linear-gradient(#041562, #030925);
 }
 
 
 
 .btn-primary{
+  border-radius:20px ;
+  
+  box-shadow: 0px 1px 5px 3px #041562;
   background: linear-gradient(#030925c2, #041562);
 }
-/* .btn-primary:hover{
-  background: linear-gradient(#041562, #04156217);
-  
-  
-} */
+
 .btn-outline-primary {
+  
+  border-radius:20px ;
   background: linear-gradient(#030925c2, #041562);
   color: white;
 }
+
+.btn-outline-danger{
+  
+  border-radius:20px ;
+color: rgba(255, 0, 0, 0.699);
+}
+.modal-header{
+  background: linear-gradient(#041562, #030925);
+  color: white;
+}
+.modal-content{
+  color: white;
+  background: linear-gradient( #030925,#041562);
+}
+/* .progress-bar.bg-primary{
+  background: linear-gradient(#0d6efd);
+}
+.progress-bar.bg-warning{
+  background: linear-gradient(#ffc107,#0a0900cc);
+}
+.progress-bar.bg-danger{
+  background: linear-gradient(#000000cc,#ff0000,#000000cc);
+} */
 

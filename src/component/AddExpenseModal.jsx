@@ -57,7 +57,7 @@ export default function AddExpenseModal({
           </Form.Group>
           <div className="d-flex justify-content-end">
             <Button variant="primary" type="submit">
-              Add
+              Add Expense
             </Button>
           </div>
         </Modal.Body>
