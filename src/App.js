@@ -103,6 +103,7 @@ setSampleBudgetid(false)
       <AddExpenseModal
         show={showAddExpenseModal}
         defaultBudgetId={addExpenseModalBudgetId}
+        
         handleClose={() => {
           setShowAddExpenseModal(false);
         }}

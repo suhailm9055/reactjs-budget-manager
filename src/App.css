@@ -56,7 +56,8 @@
 }
 
 .heading1{
-  color: #EEEEEE;
+  /* linear-gradient(#000000cc,#5e0808,#5e0808,#000000cc); */
+  color:#EEEEEE;
  font-family: fantasy;
  font-weight: lighter;
 }
@@ -75,9 +76,7 @@
   border: solid 1px red;
   box-shadow: 0px 1px 5px 1px red;
 }
-/* .card-body.bg-danger{
-  background: linear-gradient(#ff0000,#ff0909);
-} */
+
 .card-body:hover{
   background: linear-gradient(#041562, #030925);
 }
