@@ -10,6 +10,7 @@ import UnCategorizedBudgetCard from "./component/UnCategorizedBudgetCard";
 import TotalBudgetCard from "./component/TotalBudgetCard";
 import ViewExpensesModal from "./component/ViewExpensesModal";
 import "./App.css"
+import { v4 as uuidV4 } from "uuid";
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
@@ -23,16 +24,18 @@ function App() {
     setAddExpenseModalBudgetId(budgetId);
   }
   
- 
+ const id=uuidV4();
+ const name=['food',"travel","dress"]
+ let x=0
 function sampleValues(e){
-  
+   x=x+1
     e.preventDefault();
     sampleBudget({
-      id: "123",
-      description: "food",
+      id: id,
+      description: "exp",
       amount: 300,
-      budgetId: "123",
-      name: "foods",
+      budgetId: id,
+      name: name[2],
       max: 1300
    
 })
@@ -87,11 +90,11 @@ setSampleBudgetid(false)
         />
 
         <TotalBudgetCard />
-        {sampleBudgetid &&
+        
           <div>
         <NavLink onClick={sampleValues}>Show Sample Budgets</NavLink>
       </div>
-        }
+        
       </Container>
 
       <AddBudgetModal

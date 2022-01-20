@@ -50,7 +50,7 @@ export const BudgetsProvider = ({ children }) => {
       setExpenses((prevExpenses) => {
         return [...prevExpenses,{id ,description,amount,budgetId}]
       })
-      return [...prevBudgets, { id:budgetId, name:name, max:max }];
+      return [...prevBudgets, { id, name:name, max:max }];
     });
   }
   
@@ -74,6 +74,23 @@ export const BudgetsProvider = ({ children }) => {
     budget.name=name
      editdelBudget({ budgetId })
       }
+
+
+      // function editdelExpenses({id,expense}){
+      //   setExpenses((prevExpenses) => {
+      //     return prevExpenses.filter((expensa) => expensa.id !== id)
+      //   })
+      // }
+      // function editExpense({amount,id}){
+      //   console.log(amount+"amount");
+      //   console.log(id+"id");
+      //   var expense={}
+      //   var foundIndex = expenses.findIndex(x => x.id == id);
+      //   expense=expenses[foundIndex]
+      //   expense.amount=amount
+      //    editdelExpenses({ id,expense })
+         
+      // }
   return (
     <BudgetsContext.Provider
       value={{
@@ -86,6 +103,7 @@ export const BudgetsProvider = ({ children }) => {
         deleteExpense,
         sampleBudget,
         editBudget,
+        // editExpense,
       }}
     >
       {children}

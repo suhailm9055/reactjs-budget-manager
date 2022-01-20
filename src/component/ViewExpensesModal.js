@@ -4,11 +4,12 @@ import { currencyFormatter } from "./utils";
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../context/BudgetContext";
 
 
-export default function ViewExpensesModal({ budgetId,max, handleClose }) {
-  const { getBudgetExpenses, budgets, deleteBudget, deleteExpense,editBudget } =
+export default function ViewExpensesModal({ budgetId, handleClose }) {
+  const { getBudgetExpenses, budgets,editExpense, deleteBudget, deleteExpense,editBudget } =
     useBudgets();
     
     const [budgetEdit,setBudgetEdit]=useState(false)
+    const [expenseEdit, setExpenseEdit] = useState(false)
   const expenses = getBudgetExpenses(budgetId);
   const budget =
     UNCATEGORIZED_BUDGET_ID === budgetId
@@ -16,13 +17,15 @@ export default function ViewExpensesModal({ budgetId,max, handleClose }) {
       : budgets.find((b) => b.id === budgetId);
       
       const [nameEdit, setNameEdit] = useState('')
+      const [amountEdit, setAmountEdit] = useState()
+     
       
   return (
     <Modal show={budgetId != null} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>
           <Stack direction="horizontal" gap="3" className="">
-            {budgetEdit?<input className="bg-dark" value={nameEdit}  name="name" placeholder={budget?.name} onChange={e => setNameEdit(e.target.value)}></input>:<div className="me-auto">{budget?.name.toUpperCase()}-Expenses</div>}
+            {budgetEdit?<input className="bg-ḷight" value={nameEdit}  name="name" placeholder={budget?.name} onChange={e => setNameEdit(e.target.value)}></input>:<div className="me-auto">{budget?.name.toUpperCase()}-Expenses</div>}
             {budgetId !== UNCATEGORIZED_BUDGET_ID && (
               <form action="">{budgetEdit?<Button
                 onClick={() => {
@@ -61,11 +64,34 @@ export default function ViewExpensesModal({ budgetId,max, handleClose }) {
       <Modal.Body>
         <Stack direction="vertical" gap="3">
           {expenses.map((expense) => (
+               
             <Stack direction="horizontal" gap="2" key={expense.id}>
               <div className="me-auto fs-4">{expense.description}</div>
               <div className="fs-5">
-                {currencyFormatter.format(expense.amount)}
+              {expenseEdit?<input className="bg-ḷight" value={amountEdit}  name="name" placeholder={expense?.amount} onChange={e => setAmountEdit(e.target.value)}></input>:<div className="me-auto">{currencyFormatter.format(expense.amount)}</div>}
+                
               </div>
+              
+              {/* {expenseEdit?<Button
+                onClick={() => {
+                  
+                  setExpenseEdit(false)
+                  editExpense({amount:amountEdit,id:expense.id})
+                  
+                }}
+                variant="outline-secondary"
+              >
+                submit
+              </Button>:<Button
+                onClick={() => {
+
+                  setExpenseEdit(true)
+                  
+                }}
+                variant="outline-secondary"
+              >
+                Edit
+              </Button>} */}
               <Button
                 size="sm"
                 variant="outline-danger"
