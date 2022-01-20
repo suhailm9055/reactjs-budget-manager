@@ -9,7 +9,7 @@ import AddExpenseModal from "./component/AddExpenseModal";
 import UnCategorizedBudgetCard from "./component/UnCategorizedBudgetCard";
 import TotalBudgetCard from "./component/TotalBudgetCard";
 import ViewExpensesModal from "./component/ViewExpensesModal";
-
+import "./App.css"
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
@@ -40,31 +40,32 @@ setSampleBudgetid(false)
 }
   return (
     <>
-      <Container className=" my-4 ">
+      <Container className=" my-4 App">
         <Stack direction="horizontal" gap="2" className="mb-4">
-          <h1 className="me-auto">Budgets</h1>
-          <Button onClick={() => setShowAddBudgetModal(true)}>
+          <h1 className="me-auto heading1">My BudgetR</h1>
+          <Button variant="primary" onClick={() => setShowAddBudgetModal(true)}>
             Add Budget
           </Button>
           <Button variant="outline-primary" onClick={openAddExpenseModal}>
             Add Expense
           </Button>
         </Stack>
-        <div
+        <div 
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))",
-            gap: "2rem",
+            gridTemplateColumns: "repeat(auto-fill,minmax(300px, 1fr))",
+            gap: "1rem",
             alignItems: "flex-start",
           }}
-        ></div>
+        >
         {budgets.map((budget) => {
           const amount = getBudgetExpenses(budget.id).reduce(
             (total, expense) => total + expense.amount,
             0
           );
           return (
-            <BudgetCard
+            <BudgetCard onClick={() =>
+              setViewExpensesModalBudgetId(budget.id)}
               key={budget.id}
               name={budget.name}
               amount={amount}
@@ -76,6 +77,7 @@ setSampleBudgetid(false)
             ></BudgetCard>
           );
         })}
+         </div>
 
         <UnCategorizedBudgetCard
           openAddExpenseClick={openAddExpenseModal}
@@ -112,6 +114,7 @@ setSampleBudgetid(false)
         }}
       />
       
+     
     </>
   );
 }

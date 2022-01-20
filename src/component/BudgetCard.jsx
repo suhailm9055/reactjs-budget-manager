@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Card, ProgressBar, Stack } from "react-bootstrap";
+import {  Card, ProgressBar, Stack } from "react-bootstrap";
+import {Button} from 'semantic-ui-react'
 import { currencyFormatter } from "./utils";
 
 export default function BudgetCard({
@@ -12,7 +13,7 @@ export default function BudgetCard({
   hideButtons,
 }) {
   
-  const className = ["my-4 "];
+  const className = ["my-4 budgetcard"];
   if (amount > max) {
     className.push("bg-danger", "bg-opacity-10");
   } else if (gray) {
@@ -43,13 +44,14 @@ export default function BudgetCard({
         )}
          {!hideButtons &&  <Stack direction="horizontal" gap="2" className="mt-4">
          <Button
-            variant="outline-primary"
+         basic color='blue'
+            
             className="ms-auto"
             onClick={openAddExpenseClick}
           >
             Add Expense
           </Button>
-         <Button variant="outline-secondary" onClick={openViewExpensesClick} >View Expenses</Button>
+         <Button basic color='grey' onClick={openViewExpensesClick} >View Expenses</Button>
         </Stack>
          }
       </Card.Body>
