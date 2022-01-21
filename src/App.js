@@ -45,7 +45,7 @@ setSampleBudgetid(false)
     <>
       <Container className=" my-4 App">
         <Stack direction="horizontal" gap="2" className="mb-4">
-          <h1 className="me-auto heading1">My BudgetR</h1>
+          <h1 className="me-auto heading1">Budget-App</h1>
           <Button variant="outline-primary" onClick={() => setShowAddBudgetModal(true)}>
             Add Budget
           </Button>

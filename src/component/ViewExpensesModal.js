@@ -18,10 +18,13 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
       
       const [nameEdit, setNameEdit] = useState('')
       const [amountEdit, setAmountEdit] = useState()
-     
-      
+
+     function closingModal(){
+       setBudgetEdit(false);
+       handleClose()
+     }
   return (
-    <Modal show={budgetId != null} onHide={handleClose}>
+    <Modal show={budgetId != null} onHide={closingModal}>
       <Modal.Header closeButton>
         <Modal.Title>
           <Stack direction="horizontal" gap="3" className="">
@@ -50,6 +53,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
               <Button
                 onClick={() => {
                   deleteBudget(budget);
+                  setBudgetEdit(false)
                   handleClose();
                 }}
                 variant="outline-danger"
