@@ -34,7 +34,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                   editBudget({name:nameEdit,budgetId})
                   
                 }}
-                variant="outline-secondary"
+                variant="outline-success"
               >
                 submit
               </Button>:<Button
@@ -72,26 +72,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                 
               </div>
               
-              {/* {expenseEdit?<Button
-                onClick={() => {
-                  
-                  setExpenseEdit(false)
-                  editExpense({amount:amountEdit,id:expense.id})
-                  
-                }}
-                variant="outline-secondary"
-              >
-                submit
-              </Button>:<Button
-                onClick={() => {
-
-                  setExpenseEdit(true)
-                  
-                }}
-                variant="outline-secondary"
-              >
-                Edit
-              </Button>} */}
+             
               <Button
                 size="sm"
                 variant="outline-danger"
