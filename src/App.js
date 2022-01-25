@@ -25,18 +25,20 @@ function App() {
   }
   
  const id=uuidV4();
- const name=['food',"travel","dress"]
- let x=0
+ const name=['food',"travel","dress","entertainment"]
+ const amount=[200,300,400,500,600,700,800,900]
+ const x=Math.floor(Math.random() * name.length)
+ console.log(x+"x");
 function sampleValues(e){
-   x=x+1
+  
     e.preventDefault();
     sampleBudget({
       id: id,
       description: "exp",
-      amount: 300,
+      amount: amount[Math.floor(Math.random() * amount.length)],
       budgetId: id,
-      name: name[2],
-      max: 1300
+      name: name[x],
+      max: amount[Math.floor(Math.random() * amount.length)]+1000
    
 })
 setSampleBudgetid(false)
