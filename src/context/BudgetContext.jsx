@@ -12,7 +12,6 @@ export function useBudgets() {
 export const BudgetsProvider = ({ children }) => {
   const [budgets, setBudgets] = useLocalStorage("budgets", []);
   const [expenses, setExpenses] = useLocalStorage("expenses", []);
-
   function getBudgetExpenses(budgetId) {
     return expenses.filter((expense) => expense.budgetId === budgetId);
   }
@@ -47,10 +46,13 @@ export const BudgetsProvider = ({ children }) => {
   }
   function sampleBudget({ id, description, amount, budgetId,name,max }) {
     setBudgets((prevBudgets) => {
+      
+        
       setExpenses((prevExpenses) => {
         return [...prevExpenses,{id ,description,amount,budgetId}]
       })
       return [...prevBudgets, { id, name:name, max:max }];
+    
     });
   }
   
